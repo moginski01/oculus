@@ -11,7 +11,8 @@ public class ConsoleToText : MonoBehaviour
     private void OnEnable()
     {
         Application.logMessageReceived += HandleLog;
-        Debug.Log("Log enabled");
+        ClearLog();
+        Debug.Log("Witamy w aplikacji");
     }
 
     private void OnDisable()
@@ -22,8 +23,15 @@ public class ConsoleToText : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
-        output = logString + "\n" + output;
-        stack = stackTrace;
+        if (logString.Equals("Command_Clear"))
+        {
+            ClearLog();
+        }
+        else
+        {
+            output = logString + "\n" + output;
+            stack = stackTrace;
+        }
     }
 
     private void OnGUI() {
