@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -9,8 +10,11 @@ public class VRDebug : MonoBehaviour
     private bool UIActive;
     private InputData _inputData;
     private bool firstSet = false;
+    private bool isGrowth = false;
     private float x1, y1, z1;
     private float x2, y2, z2;
+    private Vector3 growth1;
+    private Vector3 growth2;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,7 @@ public class VRDebug : MonoBehaviour
         UI.SetActive(true);
         UIActive = true;
         _inputData = GetComponent<InputData>();
+        
         x1 = 0.0F;
         y1 = 0.0F;
         z1 = 0.0F;
@@ -43,8 +48,42 @@ public class VRDebug : MonoBehaviour
         //     // UI.transform.eulerAngles = new Vector3(UIAnchor.transform.eulerAngles.x,UIAnchor.transform.eulerAngles.y,0);
         //
         // }
+        
+        
 
-        if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+        if(OVRInput.GetDown(OVRInput.Button.One))
+        {
+            if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+            {
+                if (isGrowth.Equals(false))
+                {
+                    Debug.Log("Wykonywnie pomiaru w osi Y");
+                    isGrowth = true;
+                    growth1.x = rightData.x;
+                    growth1.y = rightData.y;
+                    growth1.z = rightData.z;
+                    Debug.Log("Pierwsza wartość " + growth1.y);
+                }
+                else
+                {
+                    isGrowth = false;
+                    growth2.x = rightData.x;
+                    growth2.y = rightData.y;
+                    growth2.z = rightData.z;
+                    Debug.Log("Druga wartość " + growth2.y);
+                    float distance = Math.Abs(growth1.y - growth2.y);
+                    Debug.Log("Wynik pomiaru: " + distance);
+                }
+                // float x = rightData.x;
+                // float y = rightData.y;
+                // float z = rightData.z;
+                
+                // Debug.Log("right hand x = " + x2 + ",y = " + y2 + ",z = " + z2);
+            }
+            // Debug.Log("Right trigger pressed.");
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.Two))
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
             {
@@ -54,7 +93,7 @@ public class VRDebug : MonoBehaviour
                     x1 = rightData.x;
                     y1 = rightData.y;
                     z1 = rightData.z;
-                    Debug.Log("Punkt pierwszy = " + x1 + ",y = " + y1 + ",z = " + z1);
+                    Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
                 }
                 else
                 {
@@ -72,7 +111,6 @@ public class VRDebug : MonoBehaviour
                 
                 // Debug.Log("right hand x = " + x2 + ",y = " + y2 + ",z = " + z2);
             }
-            // Debug.Log("Right trigger pressed.");
         }
 
         // if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
@@ -87,7 +125,7 @@ public class VRDebug : MonoBehaviour
         //     // Debug.Log("Left trigger pressed.");
         // }
         
-        if(OVRInput.GetDown(OVRInput.Button.Two))
+        if(OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
         {
             Debug.Log("Command_Clear");
         }
