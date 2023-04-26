@@ -1,10 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR;
+using Oculus.Interaction.Samples;
+// using namespace Oculus.Interaction.Samples
 
 public class VRDebug : MonoBehaviour
 {
 
+    //to jest test do banana
+    // Referencja do obiektu Banana Man
+    private GameObject bananaMan;
+
+    // Referencje do komponentów Banana Man
+    private Animator animator;
+    private Rigidbody rigidbody;
+    //--------------------------------------------
     public GameObject UI;
     public GameObject UIAnchor;
     private bool UIActive;
@@ -29,14 +39,26 @@ public class VRDebug : MonoBehaviour
         x2 = 0.0F;
         y2 = 0.0F;
         z2 = 0.0F;
+        
+        //test do banana
+        // Znajdź obiekt Banana Man w hierarchii sceny
+        GameObject bananaMan = GameObject.Find("Banana Man");
+
+        // Znajdź obiekt Left Forearm wewnątrz Banana Man
+        Transform leftForearm = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder/Left Arm/Left Forearm");
+
+        // Dodaj komponent Constant Rotation do obiektu Left Forearm
+        // ConstantRotation rotation = leftForearm.gameObject.AddComponent<ConstantRotation>();
+        //----------------------------
     }
 
     // Update is called once per frame
+
     void Update()
     {
 
         
-
+        
         // // if(OVRInput.GetDown(OVRInput.Button.Four))
         // // {
         // //     UIActive = !UIActive;
@@ -49,12 +71,27 @@ public class VRDebug : MonoBehaviour
         //
         // }
         
-        
+
 
         if(OVRInput.GetDown(OVRInput.Button.One))
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
             {
+                
+                //test banana
+                GameObject bananaMan = GameObject.Find("Banana Man");
+
+                // Znajdź obiekt Left Forearm wewnątrz Banana Man
+                Transform leftForearm = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder/Left Arm/Left Forearm");
+
+                // Znajdź komponent Constant Rotation na obiekcie Left Forearm
+                ConstantRotation rotation = leftForearm.GetComponent<ConstantRotation>();
+
+                // Zmniejsz prędkość obrotu
+                rotation.RotationSpeed += 10.0f;
+                //--------------
+                
+                
                 if (isGrowth.Equals(false))
                 {
                     Debug.Log("Wykonywnie pomiaru w osi Y");
@@ -74,6 +111,11 @@ public class VRDebug : MonoBehaviour
                     float distance = Math.Abs(growth1.y - growth2.y);
                     Debug.Log("Wynik pomiaru: " + distance);
                 }
+                
+                //od tąd jest test banana
+                // Rigidbody rb = GameObject.Find("MyObject").GetComponent<Rigidbody>();
+                
+                
                 // float x = rightData.x;
                 // float y = rightData.y;
                 // float z = rightData.z;
@@ -130,4 +172,7 @@ public class VRDebug : MonoBehaviour
             Debug.Log("Command_Clear");
         }
     }
+    
+    
+   
 }
