@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.XR;
 using Oculus.Interaction.Samples;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 // using namespace Oculus.Interaction.Samples
 
 public class VRDebug : MonoBehaviour
@@ -25,7 +28,16 @@ public class VRDebug : MonoBehaviour
     private float x2, y2, z2;
     private Vector3 growth1;
     private Vector3 growth2;
+
+    private bool pathBool = false;
+    private List<GameObject> path = new List<GameObject>();
+    private Thread pathThread = null;
+    private CancellationTokenSource cancellationTokenSource;
+
+    private Transform head = null;
+
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,17 +51,11 @@ public class VRDebug : MonoBehaviour
         x2 = 0.0F;
         y2 = 0.0F;
         z2 = 0.0F;
-        
-        //test do banana
-        // Znajdź obiekt Banana Man w hierarchii sceny
+
         GameObject bananaMan = GameObject.Find("Banana Man");
 
-        // Znajdź obiekt Left Forearm wewnątrz Banana Man
         Transform leftForearm = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder/Left Arm/Left Forearm");
-
-        // Dodaj komponent Constant Rotation do obiektu Left Forearm
-        // ConstantRotation rotation = leftForearm.gameObject.AddComponent<ConstantRotation>();
-        //----------------------------
+        this.head = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Neck/Head");
     }
 
     // Update is called once per frame
@@ -57,8 +63,8 @@ public class VRDebug : MonoBehaviour
     void Update()
     {
 
-        
-        
+
+
         // // if(OVRInput.GetDown(OVRInput.Button.Four))
         // // {
         // //     UIActive = !UIActive;
@@ -70,10 +76,25 @@ public class VRDebug : MonoBehaviour
         //     // UI.transform.eulerAngles = new Vector3(UIAnchor.transform.eulerAngles.x,UIAnchor.transform.eulerAngles.y,0);
         //
         // }
-        
 
 
-        if(OVRInput.GetDown(OVRInput.Button.One))
+
+
+
+
+        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x != 0f || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y != 0f)
+        {
+    
+            Vector3 temp = this.head.localScale;
+            temp.x += OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+            temp.y += OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
+            this.head.localScale = temp;
+        }
+
+
+
+
+        if (OVRInput.GetDown(OVRInput.Button.One))
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
             {
@@ -88,7 +109,7 @@ public class VRDebug : MonoBehaviour
                 ConstantRotation rotation = leftForearm.GetComponent<ConstantRotation>();
 
                 // Zmniejsz prędkość obrotu
-                rotation.RotationSpeed += 10.0f;
+                rotation.RotationSpeed += 1000.0f;
                 //--------------
                 
                 
@@ -155,22 +176,97 @@ public class VRDebug : MonoBehaviour
             }
         }
 
-        // if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-        // {
-        //     if (_inputData._leftController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 leftData))
-        //     {
-        //         float x = leftData.x;
-        //         float y = leftData.y;
-        //         float z = leftData.z;
-        //         Debug.Log("left hand x = " + x.ToString("F3") + ",y = " + y.ToString("F3") + ",z = " + z.ToString("F3"));
-        //     }
-        //     // Debug.Log("Left trigger pressed.");
-        // }
-        
-        if(OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+
+
+        async void StartRecordingPath()
+        {
+            GameObject controller = GameObject.Find("OVRPlayerController");
+            Transform hand = controller.transform.Find("OVRCameraRig/TrackingSpace/RightHandAnchor");
+
+            foreach(GameObject pathElement in this.path)
+            {
+                Destroy(pathElement);
+            }
+            this.path.Clear();
+            cancellationTokenSource = new CancellationTokenSource();
+
+            while (!cancellationTokenSource.IsCancellationRequested)
+            {
+                Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
+                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+                {
+                    GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    pathElement.GetComponent<Collider>().enabled = false;
+                    pathElement.transform.position = vector3;
+                    pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+                    path.Add(pathElement);
+                    await Task.Delay(10);
+                }
+            }
+        }
+
+        void StopRecordingPath()
+        {
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+            }
+        }
+
+        // Przykładowe wywołanie metod
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
             Debug.Log("Command_Clear");
+            StartRecordingPath();
         }
+
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        {
+            StopRecordingPath();
+        }
+
+
+
+        //if(OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)) 
+        //{
+        //    Debug.Log("Command_Clear");
+
+        //    GameObject controller = GameObject.Find("OVRPlayerController");
+        //    Transform hand = controller.transform.Find("OVRCameraRig/TrackingSpace/RightHandAnchor");
+        //    Transform eye = controller.transform.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor");
+
+        //    if (this.pathBool.Equals(false))
+        //    {
+        //        this.pathBool = true;
+        //        this.path.Clear();
+        //        this.pathThread = new Thread(() =>
+        //        {
+        //            while (this.pathBool.Equals(true))
+        //            {
+        //                Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
+        //                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+        //                {
+        //                    GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere); // utwórz obiekt kuli
+        //                    pathElement.GetComponent<Collider>().enabled = false;
+        //                    pathElement.transform.position = vector3; // ustaw pozycję kuli na centrum
+        //                    pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f); // ustaw promień kuli
+        //                    this.path.Add(pathElement);
+        //                    Thread.Sleep(333);
+        //                }
+        //            }
+        //            this.pathBool = false;
+        //            return;
+        //        });
+        //        this.pathThread.Start();
+        //    }
+
+        //}
+
+        //if(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        //{
+        //    this.pathBool = false;
+        //    this.pathThread.Abort();
+        //}
     }
     
     
