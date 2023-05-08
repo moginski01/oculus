@@ -5,7 +5,7 @@ using Oculus.Interaction.Samples;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-// using namespace Oculus.Interaction.Samples
+
 
 public class VRDebug : MonoBehaviour
 {
@@ -41,6 +41,18 @@ public class VRDebug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ModelData data = new ModelData();
+        data.name = "Imie";
+        data.age = 18;
+        data.height = 172.5f;
+        MyJsonWriter writer = new MyJsonWriter(data);
+        writer.SaveData();
+
+        // ModelData data = new ModelData();
+        // MyJsonWriter writer = new MyJsonWriter(data);
+        // writer.LoadData();
+        // data = writer.data;
+        
         UI.SetActive(true);
         UIActive = true;
         _inputData = GetComponent<InputData>();
@@ -56,6 +68,10 @@ public class VRDebug : MonoBehaviour
 
         Transform leftForearm = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder/Left Arm/Left Forearm");
         this.head = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Neck/Head");
+
+
+
+        //public MyJsonWriter writer = new MyJsonWriter();  
     }
 
     // Update is called once per frame
