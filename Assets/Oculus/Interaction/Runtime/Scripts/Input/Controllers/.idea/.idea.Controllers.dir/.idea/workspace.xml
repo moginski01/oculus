@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93fab26d-f9be-45fc-a045-4cd74a932555" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/BowShot.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/BowShot.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/Death.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/Death.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/SpellCast.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/SpellCast.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering/MiningLoop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Gathering/MiningLoop.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Idle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Idle.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollForward.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollForward.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackward.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackward.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardLeft.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardLeft.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardRight.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardRight.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunForward.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunForward.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunLeft.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunLeft.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunRight.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/RunRight.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Sprint.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/Sprint.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeLeft.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeLeft.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeRight.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeRight.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Editor/MaterialTilingOffset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/Editor/MaterialTilingOffset.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/PlateSet1_HumanMale.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/PlateSet1_HumanMale.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/StarterArmor_HumanMale.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/StarterArmor_HumanMale.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/HumanMale_Character.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/HumanMale_Character.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyArmorTexture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyArmorTexture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyCharacterTexture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyCharacterTexture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Controller.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2PKyZ0RRdiocqc1EXsL3WI9p8gC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Mati\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Mati\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Mati\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93fab26d-f9be-45fc-a045-4cd74a932555" name="Changes" comment="" />
+      <created>1683220121577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683220121577</updated>
+      <workItem from="1683220126265" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
