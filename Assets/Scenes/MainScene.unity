@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.12071081, g: 0.18701461, b: 0.33592862, a: 1}
+  m_IndirectSpecularColor: {r: 0.12076034, g: 0.1864365, b: 0.33524993, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1643,11 +1643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: _trackingOriginType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
@@ -2291,12 +2291,12 @@ MonoBehaviour:
     VRTarget: {fileID: 697136049}
     rigTarget: {fileID: 1515835501}
     positionOffset: {x: 0, y: 0, z: 0}
-    rotationOffset: {x: -60, y: 130, z: 0}
+    rotationOffset: {x: -30, y: 40, z: 0}
   leftHand:
     VRTarget: {fileID: 1617293037}
     rigTarget: {fileID: 274554076}
     positionOffset: {x: 0, y: 0, z: 0}
-    rotationOffset: {x: 60, y: -130, z: 0}
+    rotationOffset: {x: 150, y: -90, z: 0}
   headConstraint: {fileID: 2022401944}
   turnFactor: 1
   forwardAxis: 1
