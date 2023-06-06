@@ -8,4 +8,30 @@ public class MenuController : MonoBehaviour
 
         SceneManager.LoadScene("MainScene");
     }
+    
+    public void JanekButton()
+    {
+
+        SceneManager.LoadScene("JanekScene");
+    }
+    
+    public void BartekButton()
+    {
+
+        SceneManager.LoadScene("BartekScene");
+    }
+ 
+    public void MatiButton()
+    {
+
+        SceneManager.LoadScene("MatiScene");
+    }
+    
+    public void JackobButton()
+    {
+
+        SceneManager.LoadScene("JackobScene");
+    }
+    
+    
 }
