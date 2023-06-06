@@ -5,11 +5,10 @@ using Oculus.Interaction.Samples;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEditor;
 
 public class MenuList
 {
-    private List<BodyPart> bodyParts = new List<BodyPart>();
+    private List<ModelScale.BodyPart> bodyParts = new List<ModelScale.BodyPart>();
     private int currentIndex = 0;
     public bool startMeasure = false;
     public int measureStep = 0;
@@ -17,12 +16,12 @@ public class MenuList
 
     public MenuList()
     {
-        bodyParts.Add(BodyPart.None);
-        bodyParts.Add(BodyPart.RightArm);
-        bodyParts.Add(BodyPart.LeftArm);
-        bodyParts.Add(BodyPart.RightLeg);
-        bodyParts.Add(BodyPart.LeftLeg);
-        bodyParts.Add(BodyPart.Body);
+        bodyParts.Add(ModelScale.BodyPart.None);
+        bodyParts.Add(ModelScale.BodyPart.RightArm);
+        bodyParts.Add(ModelScale.BodyPart.LeftArm);
+        bodyParts.Add(ModelScale.BodyPart.RightLeg);
+        bodyParts.Add(ModelScale.BodyPart.LeftLeg);
+        bodyParts.Add(ModelScale.BodyPart.Body);
     }
 
     public void nextElement()
@@ -52,22 +51,22 @@ public class MenuList
     {
         switch (this.bodyParts[this.currentIndex])
         {
-            case BodyPart.RightArm:
+            case ModelScale.BodyPart.RightArm:
                 Debug.Log("Wybrałeś pomiar prawej ręki. Wciśnij A, aby zaakceptować wybór.");
                 break;
-            case BodyPart.LeftArm:
+            case ModelScale.BodyPart.LeftArm:
                 Debug.Log("Wybrałeś pomiar lewej ręki. Wciśnij A, aby zaakceptować wybór.");
                 break;
-            case BodyPart.RightLeg:
+            case ModelScale.BodyPart.RightLeg:
                 Debug.Log("Wybrałeś pomiar prawej nogi. Wciśnij A, aby zaakceptować wybór.");
                 break;
-            case BodyPart.LeftLeg:
+            case ModelScale.BodyPart.LeftLeg:
                 Debug.Log("Wybrałeś pomiar lewej nogi. Wciśnij A, aby zaakceptować wybór.");
                 break;
-            case BodyPart.Body:
+            case ModelScale.BodyPart.Body:
                 Debug.Log("Wybrałeś pomiar ciała. Dotknij kostki kontrolerem i naciśnij A, aby rozpocząć pomiar.");
                 break;
-            case BodyPart.None:
+            case ModelScale.BodyPart.None:
                 Debug.Log("Nie wybrałeś żadnej opcji. Wciśnij A, aby zaakceptować wybór.");
                 break;
             default:
@@ -76,7 +75,7 @@ public class MenuList
         }
     }
 
-    public BodyPart GetBodyPart()
+    public ModelScale.BodyPart GetBodyPart()
     {
         return bodyParts[currentIndex];
     }
@@ -130,10 +129,6 @@ public class VRDebug : MonoBehaviour
         z2 = 0.0F;
         this.menuList = new MenuList();
         this.modelScale = new ModelScale();
-        GameObject bananaMan = GameObject.Find("Banana Man");
-
-        Transform leftForearm = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder/Left Arm/Left Forearm");
-        this.head = bananaMan.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Neck/Head");
     }
 
 
@@ -190,19 +185,19 @@ public class VRDebug : MonoBehaviour
                 {
                     switch (this.menuList.GetBodyPart())
                     {
-                        case BodyPart.RightArm:
+                        case ModelScale.BodyPart.RightArm:
                             Debug.Log("Wybrałeś pomiar prawej ręki. Wciśnij A, aby zaakceptować wybór.");
                             break;
-                        case BodyPart.LeftArm:
+                        case ModelScale.BodyPart.LeftArm:
                             Debug.Log("Wybrałeś pomiar lewej ręki. Wciśnij A, aby zaakceptować wybór.");
                             break;
-                        case BodyPart.RightLeg:
+                        case ModelScale.BodyPart.RightLeg:
                             Debug.Log("Wybrałeś pomiar prawej nogi. Wciśnij A, aby zaakceptować wybór.");
                             break;
-                        case BodyPart.LeftLeg:
+                        case ModelScale.BodyPart.LeftLeg:
                             Debug.Log("Wybrałeś pomiar lewej nogi. Wciśnij A, aby zaakceptować wybór.");
                             break;
-                        case BodyPart.Body:
+                        case ModelScale.BodyPart.Body:
                             switch (this.menuList.measureStep)
                             {
                                 case 0:
@@ -226,13 +221,13 @@ public class VRDebug : MonoBehaviour
                                     Debug.Log("Wciśnij A w celu zakończenia pomiaru.");
                                     break;
                                 default:
-                                    this.modelScale.ScaleModel(this.menuList.vectorList, UnityEditor.BodyPart.Body);
+                                    this.modelScale.ScaleModel(this.menuList.vectorList, ModelScale.BodyPart.Body);
                                     this.menuList.measureStep = 0;
                                     this.menuList.vectorList.Clear();
                                     break;
                             }
                             break;
-                        case BodyPart.None:
+                        case ModelScale.BodyPart.None:
                             Debug.Log("Nie wybrałeś żadnej opcji. Wciśnij A, aby zaakceptować wybór.");
                             break;
                         default:

@@ -13,7 +13,7 @@ public class ModelScale : MonoBehaviour
 
     }
 
-    enum BodyPart
+    public enum BodyPart
     {
         RightArm,
         LeftArm,
@@ -23,23 +23,23 @@ public class ModelScale : MonoBehaviour
         None
     }
 
-    public void ScaleModel(List<Vector3> vectorList, UnityEditor.BodyPart bodyPart)
+    public void ScaleModel(List<Vector3> vectorList, BodyPart bodyPart)
     {
         switch (bodyPart)
         {
-            case UnityEditor.BodyPart.RightArm:
+            case BodyPart.RightArm:
 
                 break;
-            case UnityEditor.BodyPart.LeftArm:
+            case BodyPart.LeftArm:
 
                 break;
-            case UnityEditor.BodyPart.RightLeg:
+            case BodyPart.RightLeg:
 
                 break;
-            case UnityEditor.BodyPart.LeftLeg:
+            case BodyPart.LeftLeg:
 
                 break;
-            case UnityEditor.BodyPart.Body:
+            case BodyPart.Body:
                 Debug.Log("Here");
 
                 Transform ankle_r = this.model.transform.Find("Armature/Root_M/Hip_R/Knee_R/Ankle_R");
@@ -81,7 +81,7 @@ public class ModelScale : MonoBehaviour
                 //newWorldPosition = worldPositionAnkle + new Vector3(0, ankle_chest, 0);
                 //chest.position = newWorldPosition;
                 break;
-            case UnityEditor.BodyPart.None:
+            case BodyPart.None:
 
                 break;
             default:
