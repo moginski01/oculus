@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.12076039, g: 0.18643652, b: 0.33524966, a: 1}
+  m_IndirectSpecularColor: {r: 0.12076034, g: 0.1864365, b: 0.33524993, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3631,12 +3631,12 @@ MonoBehaviour:
     VRTarget: {fileID: 697136049}
     rigTarget: {fileID: 915785535}
     positionOffset: {x: 0, y: 0, z: 0}
-    rotationOffset: {x: 0, y: 0, z: 0}
+    rotationOffset: {x: -90, y: 130, z: 35}
   leftHand:
     VRTarget: {fileID: 1617293037}
     rigTarget: {fileID: 1317898713}
     positionOffset: {x: 0, y: 0, z: 0}
-    rotationOffset: {x: 0, y: 0, z: 0}
+    rotationOffset: {x: -90, y: 130, z: 45}
   headConstraint: {fileID: 1908066047}
   turnFactor: 1
   forwardAxis: 0
