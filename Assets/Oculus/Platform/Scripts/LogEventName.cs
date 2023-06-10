@@ -1,126 +1,125 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum LogEventName
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum LogEventName : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("AD_CLICK")]
+        AdClick,
 
-    [Description("AD_CLICK")]
-    AdClick,
+        [System.ComponentModel.Description("AD_IMPRESSION")]
+        AdImpression,
 
-    [Description("AD_IMPRESSION")]
-    AdImpression,
+        [System.ComponentModel.Description("VR_COMPLETE_REGISTRATION")]
+        VrCompleteRegistration,
 
-    [Description("VR_COMPLETE_REGISTRATION")]
-    VrCompleteRegistration,
+        [System.ComponentModel.Description("VR_TUTORIAL_COMPLETION")]
+        VrTutorialCompletion,
 
-    [Description("VR_TUTORIAL_COMPLETION")]
-    VrTutorialCompletion,
+        [System.ComponentModel.Description("CONTACT")]
+        Contact,
 
-    [Description("CONTACT")]
-    Contact,
+        [System.ComponentModel.Description("CUSTOMIZE_PRODUCT")]
+        CustomizeProduct,
 
-    [Description("CUSTOMIZE_PRODUCT")]
-    CustomizeProduct,
+        [System.ComponentModel.Description("DONATE")]
+        Donate,
 
-    [Description("DONATE")]
-    Donate,
+        [System.ComponentModel.Description("FIND_LOCATION")]
+        FindLocation,
 
-    [Description("FIND_LOCATION")]
-    FindLocation,
+        [System.ComponentModel.Description("VR_RATE")]
+        VrRate,
 
-    [Description("VR_RATE")]
-    VrRate,
+        [System.ComponentModel.Description("SCHEDULE")]
+        Schedule,
 
-    [Description("SCHEDULE")]
-    Schedule,
+        [System.ComponentModel.Description("VR_SEARCH")]
+        VrSearch,
 
-    [Description("VR_SEARCH")]
-    VrSearch,
+        [System.ComponentModel.Description("SMART_TRIAL")]
+        SmartTrial,
 
-    [Description("SMART_TRIAL")]
-    SmartTrial,
+        [System.ComponentModel.Description("SUBMIT_APPLICATION")]
+        SubmitApplication,
 
-    [Description("SUBMIT_APPLICATION")]
-    SubmitApplication,
+        [System.ComponentModel.Description("SUBSCRIBE")]
+        Subscribe,
 
-    [Description("SUBSCRIBE")]
-    Subscribe,
+        [System.ComponentModel.Description("VR_CONTENT_VIEW")]
+        VrContentView,
 
-    [Description("VR_CONTENT_VIEW")]
-    VrContentView,
+        [System.ComponentModel.Description("VR_SDK_INITIALIZE")]
+        VrSdkInitialize,
 
-    [Description("VR_SDK_INITIALIZE")]
-    VrSdkInitialize,
+        [System.ComponentModel.Description("VR_SDK_BACKGROUND_STATUS_AVAILABLE")]
+        VrSdkBackgroundStatusAvailable,
 
-    [Description("VR_SDK_BACKGROUND_STATUS_AVAILABLE")]
-    VrSdkBackgroundStatusAvailable,
+        [System.ComponentModel.Description("VR_SDK_BACKGROUND_STATUS_DENIED")]
+        VrSdkBackgroundStatusDenied,
 
-    [Description("VR_SDK_BACKGROUND_STATUS_DENIED")]
-    VrSdkBackgroundStatusDenied,
+        [System.ComponentModel.Description("VR_SDK_BACKGROUND_STATUS_RESTRICTED")]
+        VrSdkBackgroundStatusRestricted,
 
-    [Description("VR_SDK_BACKGROUND_STATUS_RESTRICTED")]
-    VrSdkBackgroundStatusRestricted,
+        [System.ComponentModel.Description("VR_ADD_PAYMENT_INFO")]
+        VrAddPaymentInfo,
 
-    [Description("VR_ADD_PAYMENT_INFO")]
-    VrAddPaymentInfo,
+        [System.ComponentModel.Description("VR_ADD_TO_CART")]
+        VrAddToCart,
 
-    [Description("VR_ADD_TO_CART")]
-    VrAddToCart,
+        [System.ComponentModel.Description("VR_ADD_TO_WISHLIST")]
+        VrAddToWishlist,
 
-    [Description("VR_ADD_TO_WISHLIST")]
-    VrAddToWishlist,
+        [System.ComponentModel.Description("VR_INITIATED_CHECKOUT")]
+        VrInitiatedCheckout,
 
-    [Description("VR_INITIATED_CHECKOUT")]
-    VrInitiatedCheckout,
+        [System.ComponentModel.Description("VR_PURCHASE")]
+        VrPurchase,
 
-    [Description("VR_PURCHASE")]
-    VrPurchase,
+        [System.ComponentModel.Description("VR_CATALOG_UPDATE")]
+        VrCatalogUpdate,
 
-    [Description("VR_CATALOG_UPDATE")]
-    VrCatalogUpdate,
+        [System.ComponentModel.Description("VR_PURCHASE_FAILED")]
+        VrPurchaseFailed,
 
-    [Description("VR_PURCHASE_FAILED")]
-    VrPurchaseFailed,
+        [System.ComponentModel.Description("VR_PURCHASE_RESTORED")]
+        VrPurchaseRestored,
 
-    [Description("VR_PURCHASE_RESTORED")]
-    VrPurchaseRestored,
+        [System.ComponentModel.Description("SUBSCRIPTION_INITIATED_CHECKOUT")]
+        SubscriptionInitiatedCheckout,
 
-    [Description("SUBSCRIPTION_INITIATED_CHECKOUT")]
-    SubscriptionInitiatedCheckout,
+        [System.ComponentModel.Description("SUBSCRIPTION_FAILED")]
+        SubscriptionFailed,
 
-    [Description("SUBSCRIPTION_FAILED")]
-    SubscriptionFailed,
+        [System.ComponentModel.Description("SUBSCRIPTION_RESTORE")]
+        SubscriptionRestore,
 
-    [Description("SUBSCRIPTION_RESTORE")]
-    SubscriptionRestore,
+        [System.ComponentModel.Description("VR_LEVEL_ACHIEVED")]
+        VrLevelAchieved,
 
-    [Description("VR_LEVEL_ACHIEVED")]
-    VrLevelAchieved,
+        [System.ComponentModel.Description("VR_ACHIEVEMENT_UNLOCKED")]
+        VrAchievementUnlocked,
 
-    [Description("VR_ACHIEVEMENT_UNLOCKED")]
-    VrAchievementUnlocked,
+        [System.ComponentModel.Description("VR_SPENT_CREDITS")]
+        VrSpentCredits,
 
-    [Description("VR_SPENT_CREDITS")]
-    VrSpentCredits,
+        [System.ComponentModel.Description("VR_OBTAIN_PUSH_TOKEN")]
+        VrObtainPushToken,
 
-    [Description("VR_OBTAIN_PUSH_TOKEN")]
-    VrObtainPushToken,
+        [System.ComponentModel.Description("VR_PUSH_OPENED")]
+        VrPushOpened,
 
-    [Description("VR_PUSH_OPENED")]
-    VrPushOpened,
+        [System.ComponentModel.Description("VR_ACTIVATE_APP")]
+        VrActivateApp,
 
-    [Description("VR_ACTIVATE_APP")]
-    VrActivateApp,
-
-    [Description("VR_DEACTIVATE_APP")]
-    VrDeactivateApp,
-
-  }
-
+        [System.ComponentModel.Description("VR_DEACTIVATE_APP")]
+        VrDeactivateApp
+    }
 }

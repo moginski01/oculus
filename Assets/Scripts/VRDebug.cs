@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.XR;
 using Oculus.Interaction.Samples;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine.UI;
 
 public class MenuList
 {
@@ -115,8 +113,6 @@ public class VRDebug : MonoBehaviour
     private ModelScale modelScale = null;
     private MenuList menuList = null;
     private Boolean wasTriggerMoved = false;
-
-    private List<Vector3> arc = new List<Vector3>();
 
 
     void Start()
@@ -318,14 +314,6 @@ public class VRDebug : MonoBehaviour
             this.path.Clear();
             cancellationTokenSource = new CancellationTokenSource();
 
-
-            string dateTimeString = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
-            string fileName = "hand_positions_" + dateTimeString + ".txt";
-            fileName = Path.Combine(Application.persistentDataPath, fileName);
-            Console.Write(fileName);
-            Debug.Log(fileName);
-            
-            var writer = new StreamWriter(fileName, true);
             while (!cancellationTokenSource.IsCancellationRequested)
             {
                 Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
@@ -336,8 +324,6 @@ public class VRDebug : MonoBehaviour
                     pathElement.transform.position = vector3;
                     pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
                     path.Add(pathElement);
-                    writer.Write(vector3.x + " " + vector3.y + " " + vector3.z + "\n");
-                    this.arc.Add(vector3);
                     await Task.Delay(10);
                 }
             }
@@ -350,8 +336,6 @@ public class VRDebug : MonoBehaviour
                 cancellationTokenSource.Cancel();
             }
         }
-        
-        
 
         // Przykładowe wywołanie metod
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
@@ -363,47 +347,9 @@ public class VRDebug : MonoBehaviour
         if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
         {
             StopRecordingPath();
-            (Vector3 center, float radius) = FitCircle(this.arc);
-            float arcLength = CalculateArcLength(this.arc);
-            float arcAngle = CalculateArcAngle(arcLength, radius);
-            Debug.Log($"Arc length: {arcLength.ToString()}");
-            Debug.Log($"Arc angle: {arcAngle.ToString()} degrees");
         }
     }
     
-    public static (Vector3, float) FitCircle(List<Vector3> points)
-    {
-        Vector3 center = new Vector3();
-        foreach (Vector3 point in points)
-        {
-            center += point;
-        }
-        center /= points.Count;
-
-        float radius = 0;
-        foreach (Vector3 point in points)
-        {
-            radius += Vector3.Distance(center, point);
-        }
-        radius /= points.Count;
-
-        return (center, radius);
-    }
-
-    public static float CalculateArcLength(List<Vector3> points)
-    {
-        float arcLength = 0;
-        for (int i = 0; i < points.Count - 1; i++)
-        {
-            arcLength += Vector3.Distance(points[i], points[i + 1]);
-        }
-        return arcLength;
-    }
-
-    public static float CalculateArcAngle(float arcLength, float radius)
-    {
-        float arcAngle = arcLength / radius;  // in radians
-        return arcAngle * (180 / (float)Math.PI);  // convert to degrees
-    }
+    
    
 }

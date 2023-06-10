@@ -1,42 +1,41 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum PlatformInitializeResult
+    {
+        [System.ComponentModel.Description("SUCCESS")]
+        Success = 0,
 
-  public enum PlatformInitializeResult : int
-  {
-    [Description("SUCCESS")]
-    Success = 0,
+        [System.ComponentModel.Description("UNINITIALIZED")]
+        Uninitialized = -1,
 
-    [Description("UNINITIALIZED")]
-    Uninitialized = -1,
+        [System.ComponentModel.Description("PRE_LOADED")]
+        PreLoaded = -2,
 
-    [Description("PRE_LOADED")]
-    PreLoaded = -2,
+        [System.ComponentModel.Description("FILE_INVALID")]
+        FileInvalid = -3,
 
-    [Description("FILE_INVALID")]
-    FileInvalid = -3,
+        [System.ComponentModel.Description("SIGNATURE_INVALID")]
+        SignatureInvalid = -4,
 
-    [Description("SIGNATURE_INVALID")]
-    SignatureInvalid = -4,
+        [System.ComponentModel.Description("UNABLE_TO_VERIFY")]
+        UnableToVerify = -5,
 
-    [Description("UNABLE_TO_VERIFY")]
-    UnableToVerify = -5,
+        [System.ComponentModel.Description("VERSION_MISMATCH")]
+        VersionMismatch = -6,
 
-    [Description("VERSION_MISMATCH")]
-    VersionMismatch = -6,
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown = -7,
 
-    [Description("UNKNOWN")]
-    Unknown = -7,
+        [System.ComponentModel.Description("INVALID_CREDENTIALS")]
+        InvalidCredentials = -8,
 
-    [Description("INVALID_CREDENTIALS")]
-    InvalidCredentials = -8,
-
-    [Description("NOT_ENTITLED")]
-    NotEntitled = -9,
-
-  }
-
+        [System.ComponentModel.Description("NOT_ENTITLED")]
+        NotEntitled = -9
+    }
 }

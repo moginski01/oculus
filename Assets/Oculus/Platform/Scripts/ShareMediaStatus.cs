@@ -1,21 +1,20 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum ShareMediaStatus
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum ShareMediaStatus : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("SHARED")]
+        Shared,
 
-    [Description("SHARED")]
-    Shared,
-
-    [Description("CANCELED")]
-    Canceled,
-
-  }
-
+        [System.ComponentModel.Description("CANCELED")]
+        Canceled
+    }
 }

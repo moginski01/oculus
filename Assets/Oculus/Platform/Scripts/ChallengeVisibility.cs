@@ -1,27 +1,26 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum ChallengeVisibility
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum ChallengeVisibility : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        /// Only those invited can participate in it. Everyone can see it
+        [System.ComponentModel.Description("INVITE_ONLY")]
+        InviteOnly,
 
-    /// Only those invited can participate in it. Everyone can see it
-    [Description("INVITE_ONLY")]
-    InviteOnly,
+        /// Everyone can participate and see this challenge
+        [System.ComponentModel.Description("PUBLIC")]
+        Public,
 
-    /// Everyone can participate and see this challenge
-    [Description("PUBLIC")]
-    Public,
-
-    /// Only those invited can participate and see this challenge
-    [Description("PRIVATE")]
-    Private,
-
-  }
-
+        /// Only those invited can participate and see this challenge
+        [System.ComponentModel.Description("PRIVATE")]
+        Private
+    }
 }

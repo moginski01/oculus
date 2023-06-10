@@ -1,31 +1,30 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum NetSyncDisconnectReason
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum NetSyncDisconnectReason : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        /// when disconnect was requested
+        [System.ComponentModel.Description("LOCAL_TERMINATED")]
+        LocalTerminated,
 
-    /// when disconnect was requested
-    [Description("LOCAL_TERMINATED")]
-    LocalTerminated,
+        /// server intentionally closed the connection
+        [System.ComponentModel.Description("SERVER_TERMINATED")]
+        ServerTerminated,
 
-    /// server intentionally closed the connection
-    [Description("SERVER_TERMINATED")]
-    ServerTerminated,
+        /// initial connection never succeeded
+        [System.ComponentModel.Description("FAILED")]
+        Failed,
 
-    /// initial connection never succeeded
-    [Description("FAILED")]
-    Failed,
-
-    /// network timeout
-    [Description("LOST")]
-    Lost,
-
-  }
-
+        /// network timeout
+        [System.ComponentModel.Description("LOST")]
+        Lost
+    }
 }

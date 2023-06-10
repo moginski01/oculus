@@ -1,27 +1,26 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum LaunchType
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum LaunchType : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("NORMAL")]
+        Normal,
 
-    [Description("NORMAL")]
-    Normal,
+        [System.ComponentModel.Description("INVITE")]
+        Invite,
 
-    [Description("INVITE")]
-    Invite,
+        [System.ComponentModel.Description("COORDINATED")]
+        Coordinated,
 
-    [Description("COORDINATED")]
-    Coordinated,
-
-    [Description("DEEPLINK")]
-    Deeplink,
-
-  }
-
+        [System.ComponentModel.Description("DEEPLINK")]
+        Deeplink
+    }
 }

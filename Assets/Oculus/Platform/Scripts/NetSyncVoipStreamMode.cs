@@ -1,21 +1,20 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum NetSyncVoipStreamMode
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum NetSyncVoipStreamMode : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("AMBISONIC")]
+        Ambisonic,
 
-    [Description("AMBISONIC")]
-    Ambisonic,
-
-    [Description("MONO")]
-    Mono,
-
-  }
-
+        [System.ComponentModel.Description("MONO")]
+        Mono
+    }
 }

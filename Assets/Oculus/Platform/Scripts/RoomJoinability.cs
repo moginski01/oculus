@@ -1,33 +1,32 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum RoomJoinability
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum RoomJoinability : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("ARE_IN")]
+        AreIn,
 
-    [Description("ARE_IN")]
-    AreIn,
+        [System.ComponentModel.Description("ARE_KICKED")]
+        AreKicked,
 
-    [Description("ARE_KICKED")]
-    AreKicked,
+        [System.ComponentModel.Description("CAN_JOIN")]
+        CanJoin,
 
-    [Description("CAN_JOIN")]
-    CanJoin,
+        [System.ComponentModel.Description("IS_FULL")]
+        IsFull,
 
-    [Description("IS_FULL")]
-    IsFull,
+        [System.ComponentModel.Description("NO_VIEWER")]
+        NoViewer,
 
-    [Description("NO_VIEWER")]
-    NoViewer,
-
-    [Description("POLICY_PREVENTS")]
-    PolicyPrevents,
-
-  }
-
+        [System.ComponentModel.Description("POLICY_PREVENTS")]
+        PolicyPrevents
+    }
 }

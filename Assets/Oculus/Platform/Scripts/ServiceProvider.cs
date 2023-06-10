@@ -1,30 +1,29 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum ServiceProvider
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum ServiceProvider : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("DROPBOX")]
+        Dropbox,
 
-    [Description("DROPBOX")]
-    Dropbox,
+        [System.ComponentModel.Description("FACEBOOK")]
+        Facebook,
 
-    [Description("FACEBOOK")]
-    Facebook,
+        [System.ComponentModel.Description("GOOGLE")]
+        Google,
 
-    [Description("GOOGLE")]
-    Google,
+        [System.ComponentModel.Description("INSTAGRAM")]
+        Instagram,
 
-    [Description("INSTAGRAM")]
-    Instagram,
-
-    [Description("REMOTE_MEDIA")]
-    RemoteMedia,
-
-  }
-
+        [System.ComponentModel.Description("REMOTE_MEDIA")]
+        RemoteMedia
+    }
 }

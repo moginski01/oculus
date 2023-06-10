@@ -1,27 +1,26 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum MatchmakingCriterionImportance
+    {
+        [System.ComponentModel.Description("REQUIRED")]
+        Required,
 
-  public enum MatchmakingCriterionImportance : int
-  {
-    [Description("REQUIRED")]
-    Required,
+        [System.ComponentModel.Description("HIGH")]
+        High,
 
-    [Description("HIGH")]
-    High,
+        [System.ComponentModel.Description("MEDIUM")]
+        Medium,
 
-    [Description("MEDIUM")]
-    Medium,
+        [System.ComponentModel.Description("LOW")]
+        Low,
 
-    [Description("LOW")]
-    Low,
-
-    [Description("UNKNOWN")]
-    Unknown,
-
-  }
-
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown
+    }
 }
