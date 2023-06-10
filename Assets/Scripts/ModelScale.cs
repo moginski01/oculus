@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModelScale : MonoBehaviour
 {
     private BodyPart currentBodyPart = BodyPart.None;
-    private GameObject model = GameObject.Find("HumanMale_Character_FREE");
+    private GameObject model = GameObject.Find("Banana Man");
 
 
     public ModelScale()
@@ -41,7 +41,7 @@ public class ModelScale : MonoBehaviour
                 break;
             case BodyPart.Body:
                 Debug.Log("Here");
-
+                Transform body = this.model.transform.Find("Armature");
                 Transform ankle_r = this.model.transform.Find("Armature/Root_M/Hip_R/Knee_R/Ankle_R");
                 Transform ankle_l = this.model.transform.Find("Armature/Root_M/Hip_L/Knee_L/Ankle_L");
                 Transform knee_r = this.model.transform.Find("Armature/Root_M/Hip_R/Knee_R");

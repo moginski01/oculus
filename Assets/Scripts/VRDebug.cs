@@ -13,7 +13,7 @@ public class MenuList
     public bool startMeasure = false;
     public int measureStep = 0;
     public List<Vector3> vectorList = new List<Vector3>();
-
+    public ModelScale Model = new ModelScale();
     public MenuList()
     {
         bodyParts.Add(ModelScale.BodyPart.None);
@@ -49,6 +49,7 @@ public class MenuList
 
     public void ShowBodyPartMeasurement()
     {
+        
         switch (this.bodyParts[this.currentIndex])
         {
             case ModelScale.BodyPart.RightArm:
@@ -114,7 +115,7 @@ public class VRDebug : MonoBehaviour
     private MenuList menuList = null;
     private Boolean wasTriggerMoved = false;
 
-
+    float multiplier = 1.0f;
     void Start()
     {
         UI.SetActive(true);
@@ -316,7 +317,8 @@ public class VRDebug : MonoBehaviour
 
             while (!cancellationTokenSource.IsCancellationRequested)
             {
-                Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
+                // Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
+                Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);//multiplier skala rozmiarowa na podstawie kalibracji
                 if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
                 {
                     GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere);

@@ -26,10 +26,10 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("MatiScene");
     }
     
-    public void JackobButton()
+    public void CalibrationButton()
     {
 
-        SceneManager.LoadScene("JackobScene");
+        SceneManager.LoadScene("CalibrationScene");
     }
     
     
