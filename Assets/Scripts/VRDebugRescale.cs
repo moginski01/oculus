@@ -41,6 +41,7 @@ public class VRDebugRescale : MonoBehaviour
     float multiplier = 1.0f;
     float startScale = 1.5f;
     private Vector3 originalScale = new Vector3(18.10255f,18.10255f,18.10255f);//default values for banana man
+    private RescaleMenuController menuController;
 
     void Start()
     {
@@ -58,9 +59,14 @@ public class VRDebugRescale : MonoBehaviour
         this.modelScale = new ModelScale();
     }
 
-
+    private void Awake()
+    {
+        menuController = FindObjectOfType<RescaleMenuController>();
+    }
     void Update()
     {
+        int currentOption = menuController.GetCurrentOption();
+        Debug.Log("Obecnie wybrana opcja: " + currentOption);
         //if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x != 0f || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y != 0f)
         //{
     
@@ -74,7 +80,7 @@ public class VRDebugRescale : MonoBehaviour
         {
            
             this.menuList.nextElement();
-            this.menuList.ShowBodyPartMeasurement();
+            // this.menuList.ShowBodyPartMeasurement();
             this.wasTriggerMoved = true;
 
 
@@ -84,7 +90,7 @@ public class VRDebugRescale : MonoBehaviour
         {
             
             this.menuList.previousElement();
-            this.menuList.ShowBodyPartMeasurement();
+            // this.menuList.ShowBodyPartMeasurement();
             this.wasTriggerMoved = true;
 
         }
@@ -146,24 +152,7 @@ public class VRDebugRescale : MonoBehaviour
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
             {
-                // if (firstSet.Equals(false))
-                // {
-                //     firstSet = true;
-                //     x1 = rightData.x;
-                //     y1 = rightData.y;
-                //     z1 = rightData.z;
-                //     Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
-                // }
-                // else
-                // {
-                //     firstSet = false;
-                //     x2 = rightData.x;
-                //     y2 = rightData.y;
-                //     z2 = rightData.z;
-                //     Debug.Log("Punkt drugi x = " + x2 + ",y = " + y2 + ",z = " + z2);
-                //     float distance = Mathf.Sqrt(Mathf.Pow((x2 - x1), 2) + Mathf.Pow((y2 - y1), 2) + Mathf.Pow((z2 - z1), 2));
-                //     Debug.Log("Odległość między punktami: " + distance);
-                // }
+
             }
         }
 
@@ -217,7 +206,4 @@ public class VRDebugRescale : MonoBehaviour
             StopRecordingPath();
         }
     }
-    
-    
-   
 }

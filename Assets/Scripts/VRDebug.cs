@@ -116,6 +116,7 @@ public class VRDebug : MonoBehaviour
     private Boolean wasTriggerMoved = false;
 
     float multiplier = 1.0f;
+    
     void Start()
     {
         UI.SetActive(true);
@@ -143,7 +144,7 @@ public class VRDebug : MonoBehaviour
         //    temp.y += OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
         //    this.head.localScale = temp;
         //}
-
+        
         if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x > 0.5f && wasTriggerMoved.Equals(false))
         {
            
