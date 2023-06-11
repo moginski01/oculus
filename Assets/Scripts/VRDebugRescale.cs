@@ -39,9 +39,11 @@ public class VRDebugRescale : MonoBehaviour
     private Boolean wasTriggerMoved = false;
 
     float multiplier = 1.0f;
+    float multiplierHand = 1.0f;
     float startScale = 1.5f;
     private Vector3 originalScale = new Vector3(18.10255f,18.10255f,18.10255f);//default values for banana man
     private RescaleMenuController menuController;
+    private int lastMenuOption = 0;
 
     void Start()
     {
@@ -65,8 +67,6 @@ public class VRDebugRescale : MonoBehaviour
     }
     void Update()
     {
-        int currentOption = menuController.GetCurrentOption();
-        Debug.Log("Obecnie wybrana opcja: " + currentOption);
         //if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x != 0f || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y != 0f)
         //{
     
@@ -82,8 +82,6 @@ public class VRDebugRescale : MonoBehaviour
             this.menuList.nextElement();
             // this.menuList.ShowBodyPartMeasurement();
             this.wasTriggerMoved = true;
-
-
         }
 
         if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x < -0.5f && wasTriggerMoved.Equals(false))
@@ -107,44 +105,140 @@ public class VRDebugRescale : MonoBehaviour
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
             {
-                //GameObject man = GameObject.Find("HumanMale_Character_FREE");
-                //Transform hip = man.transform.Find("Armature/Root_M/Hip_R");
-                //Vector3 worldPosition = hip.TransformPoint(Vector3.zero);
-                //worldPosition += new Vector3(0, 0, 0.01f);
-                //hip.position = worldPosition;
+                int currentOption = menuController.GetCurrentOption();
+                Debug.Log("Obecnie wybrana opcja: " + currentOption);
 
-                if (firstSet.Equals(false))
-                {
-                    firstSet = true;
-                    x1 = rightData.x;
-                    y1 = rightData.y;
-                    z1 = rightData.z;
-                    Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
-                }
-                else
+                if (currentOption != lastMenuOption)
                 {
                     firstSet = false;
-                    x2 = rightData.x;
-                    y2 = rightData.y;
-                    z2 = rightData.z;
-
-                    float distance = Math.Abs(y1 - y2);
-                    Debug.Log("Odległość między punktami: " + distance);
-                    if (this.menuList.startMeasure == false)
-                    {
-                        GameObject model = GameObject.Find("UserModel");
-                        Transform armature = model.transform.Find("Armature");
-                        Vector3 currentScaleArmature = armature.localScale;
-                        
-                        multiplier = 1.0f *distance/1.5f;//1.5f dlatego że zakładamy że rozmiar początkowy modelu wynosi 1.5m wizualnie ponieważ umożliwia to komfortowe korzystanie z aplikacji dla modelów większych do ok 3m.
-                        Debug.Log("Multiplier: " + multiplier);
-                        Debug.Log("Armature: " + currentScaleArmature);
-                        currentScaleArmature = originalScale*multiplier;
-                        armature.transform.localScale = currentScaleArmature;
-          
-                    }
                 }
                 
+                switch (currentOption)
+                {
+                    case 0:
+                    {//pomiar wzrostu - skalujemy wszystko
+                        if (firstSet.Equals(false))
+                        {
+                            firstSet = true;
+                            x1 = rightData.x;
+                            y1 = rightData.y;
+                            z1 = rightData.z;
+                            Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                        }
+                        else
+                        {
+                            firstSet = false;
+                            x2 = rightData.x;
+                            y2 = rightData.y;
+                            z2 = rightData.z;
+
+                            float distance = Math.Abs(y1 - y2);
+                            // Debug.Log("Odległość między punktami: " + distance);
+                            if (this.menuList.startMeasure == false)
+                            {
+                                GameObject model = GameObject.Find("UserModel");
+                                Transform armature = model.transform.Find("Armature");
+                                Vector3 currentScaleArmature = armature.localScale;
+                        
+                                multiplier = 1.0f *distance/1.5f;//1.5f dlatego że zakładamy że rozmiar początkowy modelu wynosi 1.5m wizualnie ponieważ umożliwia to komfortowe korzystanie z aplikacji dla modelów większych do ok 3m.
+                                // Debug.Log("Multiplier: " + multiplier);
+                                // Debug.Log("Armature: " + currentScaleArmature);
+                                currentScaleArmature = originalScale*multiplier;
+                                armature.transform.localScale = currentScaleArmature;
+          
+                            }
+                        }
+                        break;
+                    }
+                    case 1:
+                    {//pomiar ręki lewej
+                        if (firstSet.Equals(false))
+                        {
+                            firstSet = true;
+                            x1 = rightData.x;
+                            y1 = rightData.y;
+                            z1 = rightData.z;
+                            // Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                            Debug.Log("Teraz przyłóż kontroler na koniec lewej ręki");
+                        }
+                        else
+                        {
+                            firstSet = false;
+                            x2 = rightData.x;
+                            y2 = rightData.y;
+                            z2 = rightData.z;
+
+                            float distance = Mathf.Sqrt(Mathf.Pow((x2 - x1), 2) + Mathf.Pow((y2 - y1), 2) + Mathf.Pow((z2 - z1), 2));
+                            // Debug.Log("Odległość między punktami: " + distance);
+                            
+                            // float distance2 = Mathf.Sqrt(Mathf.Pow((7.45058e-11f - 0.0001550801f), 2) + Mathf.Pow((0.01007542f - 0.005770001f), 2) + Mathf.Pow((2.114102e-09f - 0.001264061f), 2));
+                            // Debug.Log("Odległość między punktami2: " + distance2);//
+                            if (this.menuList.startMeasure == false)
+                            {
+                                GameObject model = GameObject.Find("UserModel");
+                                Transform leftHand = model.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Left Shoulder");
+                                Vector3 currentScaleLeftHand = leftHand.localScale;
+                                // Debug.Log("Local scale:"+currentScaleLeftHand);
+                                // Debug.Log("Local scalev2:"+leftHand.lossyScale);
+                                multiplierHand =distance/0.5843f;//0.584f to rozmiar ręki dla człowieka 1.5m
+                                Vector3 originalScaleHand = new Vector3(1.0f, 1.0f, 1.0f)/multiplier;
+                                // Debug.Log("Multiplier: " + multiplier);
+                                // Debug.Log("Armature: " + currentScaleLeftHand);
+                                currentScaleLeftHand = originalScaleHand*multiplierHand;
+                                leftHand.transform.localScale = currentScaleLeftHand;
+                                Debug.Log("Długość lewej ręki wynosi: " + distance);
+
+                            }
+                        }
+                        break;
+                        
+                    }
+                    case 2:
+                    {//pomiar prawej ręki
+                        if (firstSet.Equals(false))
+                        {
+                            firstSet = true;
+                            x1 = rightData.x;
+                            y1 = rightData.y;
+                            z1 = rightData.z;
+                            Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                        }
+                        else
+                        {
+                            firstSet = false;
+                            x2 = rightData.x;
+                            y2 = rightData.y;
+                            z2 = rightData.z;
+
+                            float distance = Mathf.Sqrt(Mathf.Pow((x2 - x1), 2) + Mathf.Pow((y2 - y1), 2) + Mathf.Pow((z2 - z1), 2));
+                            
+                            // float distance2 = Mathf.Sqrt(Mathf.Pow((7.45058e-11f - 0.0001550801f), 2) + Mathf.Pow((0.01007542f - 0.005770001f), 2) + Mathf.Pow((2.114102e-09f - 0.001264061f), 2));
+                            // Debug.Log("Odległość między punktami2: " + distance2);//
+                            if (this.menuList.startMeasure == false)
+                            {
+                                GameObject model = GameObject.Find("UserModel");
+                                Transform rightHand = model.transform.Find("Armature/Hips/Spine 1/Spine 2/Spine 3/Right Shoulder");
+                                Vector3 currentScaleLeftHand = rightHand.localScale;
+                                // Debug.Log("Local scale:"+currentScaleLeftHand);
+                                // Debug.Log("Local scalev2:"+rightHand.lossyScale);
+                                multiplierHand =distance/0.5843f;//0.584f to rozmiar ręki dla człowieka 1.5m
+                                Vector3 originalScaleHand = new Vector3(1.0f, 1.0f, 1.0f)/multiplier;
+                                // Debug.Log("Multiplier: " + multiplier);
+                                // Debug.Log("Armature: " + currentScaleLeftHand);
+                                currentScaleLeftHand = originalScaleHand*multiplierHand;
+                                rightHand.transform.localScale = currentScaleLeftHand;
+                                Debug.Log("Długość prawej ręki wynosi: " + distance);
+
+                            }
+                        }
+                        break;
+                        
+                    }
+                    
+                }
+
+                lastMenuOption = currentOption;
+
             }
         }
 
