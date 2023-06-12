@@ -1,23 +1,18 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System;
+
 namespace Oculus.Platform.Models
 {
-  using System;
-  using System.Collections;
-  using Oculus.Platform.Models;
-  using System.Collections.Generic;
-  using UnityEngine;
-
-  /// DEPRECATED. Will be removed from headers at version v51.
-  public class CalApplicationProposed
-  {
-    public readonly UInt64 ID;
-
-
-    public CalApplicationProposed(IntPtr o)
+    /// DEPRECATED. Will be removed from headers at version v51.
+    public class CalApplicationProposed
     {
-      ID = CAPI.ovr_CalApplicationProposed_GetID(o);
-    }
-  }
+        public readonly ulong ID;
 
+
+        public CalApplicationProposed(IntPtr o)
+        {
+            ID = CAPI.ovr_CalApplicationProposed_GetID(o);
+        }
+    }
 }

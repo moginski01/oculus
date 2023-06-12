@@ -1,24 +1,23 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum UserOrdering
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum UserOrdering : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        /// No preference for ordering (could be in any or no order)
+        [System.ComponentModel.Description("NONE")]
+        None,
 
-    /// No preference for ordering (could be in any or no order)
-    [Description("NONE")]
-    None,
-
-    /// Orders by online users first and then offline users. Within each group the
-    /// users are ordered alphabetically by display name
-    [Description("PRESENCE_ALPHABETICAL")]
-    PresenceAlphabetical,
-
-  }
-
+        /// Orders by online users first and then offline users. Within each group the
+        /// users are ordered alphabetically by display name
+        [System.ComponentModel.Description("PRESENCE_ALPHABETICAL")]
+        PresenceAlphabetical
+    }
 }

@@ -1,105 +1,104 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum LogEventParameter
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum LogEventParameter : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("VR_CURRENCY")]
+        VrCurrency,
 
-    [Description("VR_CURRENCY")]
-    VrCurrency,
+        [System.ComponentModel.Description("VR_REGISTRATION_METHOD")]
+        VrRegistrationMethod,
 
-    [Description("VR_REGISTRATION_METHOD")]
-    VrRegistrationMethod,
+        [System.ComponentModel.Description("VR_CONTENT_TYPE")]
+        VrContentType,
 
-    [Description("VR_CONTENT_TYPE")]
-    VrContentType,
+        [System.ComponentModel.Description("VR_CONTENT")]
+        VrContent,
 
-    [Description("VR_CONTENT")]
-    VrContent,
+        [System.ComponentModel.Description("VR_CONTENT_ID")]
+        VrContentId,
 
-    [Description("VR_CONTENT_ID")]
-    VrContentId,
+        [System.ComponentModel.Description("VR_SEARCH_STRING")]
+        VrSearchString,
 
-    [Description("VR_SEARCH_STRING")]
-    VrSearchString,
+        [System.ComponentModel.Description("VR_SUCCESS")]
+        VrSuccess,
 
-    [Description("VR_SUCCESS")]
-    VrSuccess,
+        [System.ComponentModel.Description("VR_MAX_RATING_VALUE")]
+        VrMaxRatingValue,
 
-    [Description("VR_MAX_RATING_VALUE")]
-    VrMaxRatingValue,
+        [System.ComponentModel.Description("VR_PAYMENT_INFO_AVAILABLE")]
+        VrPaymentInfoAvailable,
 
-    [Description("VR_PAYMENT_INFO_AVAILABLE")]
-    VrPaymentInfoAvailable,
+        [System.ComponentModel.Description("VR_NUM_ITEMS")]
+        VrNumItems,
 
-    [Description("VR_NUM_ITEMS")]
-    VrNumItems,
+        [System.ComponentModel.Description("VR_LEVEL")]
+        VrLevel,
 
-    [Description("VR_LEVEL")]
-    VrLevel,
+        [System.ComponentModel.Description("VR_DESCRIPTION")]
+        VrDescription,
 
-    [Description("VR_DESCRIPTION")]
-    VrDescription,
+        [System.ComponentModel.Description("AD_TYPE")]
+        AdType,
 
-    [Description("AD_TYPE")]
-    AdType,
+        [System.ComponentModel.Description("VR_ORDER_ID")]
+        VrOrderId,
 
-    [Description("VR_ORDER_ID")]
-    VrOrderId,
+        [System.ComponentModel.Description("EVENT_NAME")]
+        EventName,
 
-    [Description("EVENT_NAME")]
-    EventName,
+        [System.ComponentModel.Description("LOG_TIME")]
+        LogTime,
 
-    [Description("LOG_TIME")]
-    LogTime,
+        [System.ComponentModel.Description("IMPLICITLY_LOGGED")]
+        ImplicitlyLogged,
 
-    [Description("IMPLICITLY_LOGGED")]
-    ImplicitlyLogged,
+        [System.ComponentModel.Description("IN_BACKGROUND")]
+        InBackground,
 
-    [Description("IN_BACKGROUND")]
-    InBackground,
+        [System.ComponentModel.Description("VR_PUSH_CAMPAIGN")]
+        VrPushCampaign,
 
-    [Description("VR_PUSH_CAMPAIGN")]
-    VrPushCampaign,
+        [System.ComponentModel.Description("VR_PUSH_ACTION")]
+        VrPushAction,
 
-    [Description("VR_PUSH_ACTION")]
-    VrPushAction,
+        [System.ComponentModel.Description("VR_IAP_PRODUCT_TYPE")]
+        VrIapProductType,
 
-    [Description("VR_IAP_PRODUCT_TYPE")]
-    VrIapProductType,
+        [System.ComponentModel.Description("VR_CONTENT_TITLE")]
+        VrContentTitle,
 
-    [Description("VR_CONTENT_TITLE")]
-    VrContentTitle,
+        [System.ComponentModel.Description("VR_TRANSACTION_ID")]
+        VrTransactionId,
 
-    [Description("VR_TRANSACTION_ID")]
-    VrTransactionId,
+        [System.ComponentModel.Description("VR_TRANSACTION_DATE")]
+        VrTransactionDate,
 
-    [Description("VR_TRANSACTION_DATE")]
-    VrTransactionDate,
+        [System.ComponentModel.Description("VR_IAP_SUBS_PERIOD")]
+        VrIapSubsPeriod,
 
-    [Description("VR_IAP_SUBS_PERIOD")]
-    VrIapSubsPeriod,
+        [System.ComponentModel.Description("VR_IAP_IS_START_TRIAL")]
+        VrIapIsStartTrial,
 
-    [Description("VR_IAP_IS_START_TRIAL")]
-    VrIapIsStartTrial,
+        [System.ComponentModel.Description("VR_IAP_HAS_FREE_TRIAL")]
+        VrIapHasFreeTrial,
 
-    [Description("VR_IAP_HAS_FREE_TRIAL")]
-    VrIapHasFreeTrial,
+        [System.ComponentModel.Description("VR_IAP_TRIAL_PERIOD")]
+        VrIapTrialPeriod,
 
-    [Description("VR_IAP_TRIAL_PERIOD")]
-    VrIapTrialPeriod,
+        [System.ComponentModel.Description("VR_IAP_TRIAL_PRICE")]
+        VrIapTrialPrice,
 
-    [Description("VR_IAP_TRIAL_PRICE")]
-    VrIapTrialPrice,
-
-    [Description("SESSION_ID")]
-    SessionId,
-
-  }
-
+        [System.ComponentModel.Description("SESSION_ID")]
+        SessionId
+    }
 }

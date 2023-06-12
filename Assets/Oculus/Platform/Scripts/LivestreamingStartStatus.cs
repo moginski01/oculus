@@ -1,30 +1,29 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum LivestreamingStartStatus
+    {
+        [System.ComponentModel.Description("SUCCESS")]
+        Success = 1,
 
-  public enum LivestreamingStartStatus : int
-  {
-    [Description("SUCCESS")]
-    Success = 1,
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown = 0,
 
-    [Description("UNKNOWN")]
-    Unknown = 0,
+        [System.ComponentModel.Description("NO_PACKAGE_SET")]
+        NoPackageSet = -1,
 
-    [Description("NO_PACKAGE_SET")]
-    NoPackageSet = -1,
+        [System.ComponentModel.Description("NO_FB_CONNECT")]
+        NoFbConnect = -2,
 
-    [Description("NO_FB_CONNECT")]
-    NoFbConnect = -2,
+        [System.ComponentModel.Description("NO_SESSION_ID")]
+        NoSessionId = -3,
 
-    [Description("NO_SESSION_ID")]
-    NoSessionId = -3,
-
-    [Description("MISSING_PARAMETERS")]
-    MissingParameters = -4,
-
-  }
-
+        [System.ComponentModel.Description("MISSING_PARAMETERS")]
+        MissingParameters = -4
+    }
 }

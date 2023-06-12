@@ -1,21 +1,20 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum VoipMuteState
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum VoipMuteState : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("MUTED")]
+        Muted,
 
-    [Description("MUTED")]
-    Muted,
-
-    [Description("UNMUTED")]
-    Unmuted,
-
-  }
-
+        [System.ComponentModel.Description("UNMUTED")]
+        Unmuted
+    }
 }

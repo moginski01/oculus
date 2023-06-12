@@ -1,23 +1,18 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System;
+
 namespace Oculus.Platform.Models
 {
-  using System;
-  using System.Collections;
-  using Oculus.Platform.Models;
-  using System.Collections.Generic;
-  using UnityEngine;
-
-  public class UserDataStoreUpdateResponse
-  {
-    /// Whether the update request is succeeded.
-    public readonly bool Success;
-
-
-    public UserDataStoreUpdateResponse(IntPtr o)
+    public class UserDataStoreUpdateResponse
     {
-      Success = CAPI.ovr_UserDataStoreUpdateResponse_GetSuccess(o);
-    }
-  }
+        /// Whether the update request is succeeded.
+        public readonly bool Success;
 
+
+        public UserDataStoreUpdateResponse(IntPtr o)
+        {
+            Success = CAPI.ovr_UserDataStoreUpdateResponse_GetSuccess(o);
+        }
+    }
 }

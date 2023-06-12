@@ -1,27 +1,26 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum RoomType
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum RoomType : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("MATCHMAKING")]
+        Matchmaking,
 
-    [Description("MATCHMAKING")]
-    Matchmaking,
+        [System.ComponentModel.Description("MODERATED")]
+        Moderated,
 
-    [Description("MODERATED")]
-    Moderated,
+        [System.ComponentModel.Description("PRIVATE")]
+        Private,
 
-    [Description("PRIVATE")]
-    Private,
-
-    [Description("SOLO")]
-    Solo,
-
-  }
-
+        [System.ComponentModel.Description("SOLO")]
+        Solo
+    }
 }

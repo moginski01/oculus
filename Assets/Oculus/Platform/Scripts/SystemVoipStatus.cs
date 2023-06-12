@@ -1,24 +1,23 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum SystemVoipStatus
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum SystemVoipStatus : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("UNAVAILABLE")]
+        Unavailable,
 
-    [Description("UNAVAILABLE")]
-    Unavailable,
+        [System.ComponentModel.Description("SUPPRESSED")]
+        Suppressed,
 
-    [Description("SUPPRESSED")]
-    Suppressed,
-
-    [Description("ACTIVE")]
-    Active,
-
-  }
-
+        [System.ComponentModel.Description("ACTIVE")]
+        Active
+    }
 }

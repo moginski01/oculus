@@ -1,24 +1,23 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum CloudStorageUpdateStatus
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum CloudStorageUpdateStatus : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("OK")]
+        Ok,
 
-    [Description("OK")]
-    Ok,
+        [System.ComponentModel.Description("BETTER_VERSION_STORED")]
+        BetterVersionStored,
 
-    [Description("BETTER_VERSION_STORED")]
-    BetterVersionStored,
-
-    [Description("MANUAL_MERGE_REQUIRED")]
-    ManualMergeRequired,
-
-  }
-
+        [System.ComponentModel.Description("MANUAL_MERGE_REQUIRED")]
+        ManualMergeRequired
+    }
 }

@@ -1,21 +1,20 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System.ComponentModel;
+
 namespace Oculus.Platform
 {
+    using Description = DescriptionAttribute;
 
-  using Description = System.ComponentModel.DescriptionAttribute;
+    public enum RoomMembershipLockStatus
+    {
+        [System.ComponentModel.Description("UNKNOWN")]
+        Unknown,
 
-  public enum RoomMembershipLockStatus : int
-  {
-    [Description("UNKNOWN")]
-    Unknown,
+        [System.ComponentModel.Description("LOCK")]
+        Lock,
 
-    [Description("LOCK")]
-    Lock,
-
-    [Description("UNLOCK")]
-    Unlock,
-
-  }
-
+        [System.ComponentModel.Description("UNLOCK")]
+        Unlock
+    }
 }

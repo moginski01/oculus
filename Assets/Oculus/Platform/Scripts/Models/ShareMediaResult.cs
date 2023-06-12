@@ -1,22 +1,17 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
+using System;
+
 namespace Oculus.Platform.Models
 {
-  using System;
-  using System.Collections;
-  using Oculus.Platform.Models;
-  using System.Collections.Generic;
-  using UnityEngine;
-
-  public class ShareMediaResult
-  {
-    public readonly ShareMediaStatus Status;
-
-
-    public ShareMediaResult(IntPtr o)
+    public class ShareMediaResult
     {
-      Status = CAPI.ovr_ShareMediaResult_GetStatus(o);
-    }
-  }
+        public readonly ShareMediaStatus Status;
 
+
+        public ShareMediaResult(IntPtr o)
+        {
+            Status = CAPI.ovr_ShareMediaResult_GetStatus(o);
+        }
+    }
 }
