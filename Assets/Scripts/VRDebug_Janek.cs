@@ -7,8 +7,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using Timer = System.Threading.Timer;
+
+enum Menu
+{
+    LIST,
+    LOAD,
+    CLEAR,
+    REMOVE,
+    REMOVE_ALL
+}
 
 public class VRDebug_Janek : MonoBehaviour
 {
@@ -37,13 +48,154 @@ public class VRDebug_Janek : MonoBehaviour
     private CancellationTokenSource cancellationTokenSource;
 
     private Transform head = null;
-    private ModelScale modelScale = null;
-    private MenuList menuList = null;
     private Boolean wasTriggerMoved = false;
     
     private List<Vector3> arc = new List<Vector3>();
+    public Button loadButton;
+    public Button clearButton;
+    public Button removeButton;
+    public Button removeAllButton;
+    public TMP_Dropdown dropdown;
 
 
+    private List<String> fileNameList = new List<string>();
+    
+    private List<Menu> menuOptions;
+    private int currentMenuOptionIndex;
+    
+
+    private int currentOption = 0;
+    private float thumbstickInput_x = 0f;
+    private float thumbstickInput_y = 0f;
+    public float thumbstickThreshold = 0.5f;
+
+    private float switchTimer = 0f;
+
+    private Color[] defaultColors;
+
+    public Image arrowUp;
+    public Image arrowDown;
+    public List<List<GameObject>> history = new List<List<GameObject>>();
+
+    void ClearHistory()
+    {
+        foreach (var gameObjectList in history)
+        {
+            foreach (var gameObject in gameObjectList)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        foreach (GameObject o in path)
+        {
+            Destroy(o);
+        }
+        history.Clear();
+    }
+
+    private void LoadMeasurements()
+    {
+        string fileName = "hand_positions_measurements.txt";
+        fileName = Path.Combine(Application.persistentDataPath, fileName);
+        
+        List<string> measurements = new List<string>();
+        if (File.Exists(fileName))
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(fileName))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        measurements.Add(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("The file could not be read:");
+            }
+        }
+
+        dropdown.ClearOptions();
+        dropdown.AddOptions(measurements);
+        fileNameList = measurements;
+        UpdateArrowVisibility();
+        
+    }
+    
+    void RemoveLineFromFile(string lineToRemove)
+    {
+        string fileName = "hand_positions_measurements.txt";
+        fileName = Path.Combine(Application.persistentDataPath, fileName);
+        if(File.Exists(fileName))
+        {
+            string tempFile = Path.GetTempFileName();
+
+            using (var sr = new StreamReader(fileName))
+            using (var sw = new StreamWriter(tempFile))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != lineToRemove)
+                        sw.WriteLine(line);
+                    else
+                    {
+                        string fileToRemove = Path.Combine(Application.persistentDataPath, lineToRemove);
+                        if (File.Exists(fileToRemove))
+                        {
+                            try
+                            {
+                                File.Delete(fileToRemove);
+                            }
+                            catch (IOException ex)
+                            {
+                                Debug.LogError("Nie udało się usunąć pliku: " + fileToRemove + ". Błąd: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+
+            File.Delete(fileName);
+            File.Move(tempFile, fileName);
+        }
+        else
+        {
+            Debug.LogError("Plik nie istnieje: " + fileName);
+        }
+        UpdateArrowVisibility();
+        LoadMeasurements();
+    }
+    
+    void DeleteFile()
+    {
+        string fileName = "hand_positions_measurements.txt";
+        fileName = Path.Combine(Application.persistentDataPath, fileName);
+        if (File.Exists(fileName))
+        {
+            using (var sr = new StreamReader(fileName))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    line = Path.Combine(Application.persistentDataPath, line);
+                    if (File.Exists(line))
+                    {
+                        File.Delete(line);
+                    }
+                }
+            }
+            File.Delete(fileName);
+        }
+
+        LoadMeasurements();
+        UpdateArrowVisibility();
+    }
+    
     void Start()
     {
         UI.SetActive(true);
@@ -58,12 +210,186 @@ public class VRDebug_Janek : MonoBehaviour
         z2 = 0.0F;
         this.menuList = new MenuList();
         this.modelScale = new ModelScale();
+        Button btn = loadButton.GetComponent<Button>();
+        dropdown = dropdown.GetComponent<TMP_Dropdown>();
+        btn.onClick.AddListener(() =>
+        {
+            LoadPointsFromFile(dropdown.options[dropdown.value].text);
+        });
+
+        LoadMeasurements();
+        
+        menuOptions = new List<Menu>()
+        {
+            Menu.LIST,
+            Menu.LOAD,
+            Menu.CLEAR,
+            Menu.REMOVE,
+            Menu.REMOVE_ALL
+        };
+
+        currentMenuOptionIndex = 0;
+        
     }
 
+    void TaskOnClick()
+    {
+        Debug.Log(dropdown.options[dropdown.value].text);
+        
+    }
+    
+    public void NextOption()
+    {
+        currentMenuOptionIndex = (currentMenuOptionIndex + 1) % menuOptions.Count;
+        Debug.Log(currentMenuOptionIndex.ToString());
+    }
+
+    public void PreviousOption()
+    {
+        currentMenuOptionIndex = (currentMenuOptionIndex - 1 + menuOptions.Count) % menuOptions.Count;
+        Debug.Log(currentMenuOptionIndex.ToString());
+    }
+
+    public void HandleCurrentOption()
+    {
+        Menu currentOption = menuOptions[currentMenuOptionIndex];
+    
+        switch (currentOption)
+        {
+            case Menu.LIST:
+                break;
+            case Menu.LOAD:
+                if (dropdown.options.Count() > 0)
+                {
+                    LoadPointsFromFile(dropdown.options[dropdown.value].text);
+                    LoadMeasurements();
+                }
+                Debug.Log("Wybrano LOAD");
+                break;
+            case Menu.CLEAR:
+                ClearHistory();
+                break;
+            case Menu.REMOVE:
+                if (dropdown.options.Count() > 0)
+                {
+                    RemoveLineFromFile(dropdown.options[dropdown.value].text);
+                    LoadMeasurements();
+                }
+                break;
+            case Menu.REMOVE_ALL:
+                DeleteFile();
+                break;
+        }
+    }
+    
+    public void ChangeState()
+    {
+        Menu currentOption = menuOptions[currentMenuOptionIndex];
+        dropdown.image.color = Color.white;
+        loadButton.image.color = Color.white;
+        clearButton.image.color = Color.white;
+        removeButton.image.color = Color.white;
+        removeAllButton.image.color = Color.white;
+        switch (currentOption)
+        {
+            case Menu.LIST:
+                dropdown.image.color = Color.yellow;
+                break;
+            case Menu.LOAD:
+                loadButton.image.color = Color.yellow;
+                break;
+            case Menu.CLEAR:
+                clearButton.image.color = Color.yellow;
+                break;
+            case Menu.REMOVE:
+                removeButton.image.color = Color.yellow;
+                break;
+            case Menu.REMOVE_ALL:
+                removeAllButton.image.color = Color.yellow;
+                break;
+        }
+    }
+
+    void ListNextOptions()
+    {
+        var currentOption = dropdown.value;
+        if (currentOption < dropdown.options.Count - 1)
+        {
+            dropdown.value = currentOption + 1;
+        }
+
+        UpdateArrowVisibility();
+        dropdown.RefreshShownValue();
+    }
+
+    void ListPreviousOptions()
+    {
+        var currentOption = dropdown.value;
+        if (currentOption > 0)
+        {
+            dropdown.value = currentOption - 1;
+        }
+
+        UpdateArrowVisibility();
+        dropdown.RefreshShownValue();
+    }
+
+    void UpdateArrowVisibility()
+    {
+        if (dropdown.options.Count == 0)
+        {
+            arrowDown.enabled = false;
+            arrowUp.enabled = false;
+        }
+        else
+        {
+            arrowDown.enabled = dropdown.value > 0;
+            arrowUp.enabled = dropdown.value < dropdown.options.Count - 1;
+        }
+    }
 
     void Update()
     {
+
+        timer += Time.deltaTime;
+        thumbstickInput_x = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+        thumbstickInput_y = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
         
+        var selectedOption = menuOptions[currentMenuOptionIndex];
+        if (thumbstickInput_x > thumbstickThreshold && timer > 0.3f)
+        {
+            NextOption();
+            timer = 0.0f;
+        }
+        else if (thumbstickInput_x < -thumbstickThreshold && timer > 0.3f)
+        {
+            PreviousOption();
+            timer = 0.0f;
+        }
+        
+        if (thumbstickInput_y > thumbstickThreshold && timer > 0.3f)
+        {
+            if (selectedOption == Menu.LIST)
+            {
+                ListNextOptions();
+            }
+            timer = 0.0f;
+        }
+        else if (thumbstickInput_y < -thumbstickThreshold && timer > 0.3f)
+        {
+            if (selectedOption == Menu.LIST)
+            {
+                ListPreviousOptions();
+            }
+            timer = 0.0f;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            HandleCurrentOption();
+        }
+
+        ChangeState();
 
 
 
@@ -72,6 +398,7 @@ public class VRDebug_Janek : MonoBehaviour
             GameObject controller = GameObject.Find("OVRPlayerController");
             Transform hand = controller.transform.Find("OVRCameraRig/TrackingSpace/RightHandAnchor");
 
+            Debug.Log("Here");
             foreach(GameObject pathElement in this.path)
             {
                 Destroy(pathElement);
@@ -81,27 +408,56 @@ public class VRDebug_Janek : MonoBehaviour
 
             string dateTimeString = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
             string fileName = "hand_positions_" + dateTimeString + ".txt";
+            CallAppendText(fileName);
             fileName = Path.Combine(Application.persistentDataPath, fileName);
-            Debug.Log(fileName);
-
-            var writer = new StreamWriter(fileName, true);
             
-            while (!cancellationTokenSource.IsCancellationRequested)
+
+            
+            using (var writer = new StreamWriter(fileName, true))
             {
-                Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
-                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+                do
                 {
-                    GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    pathElement.GetComponent<Collider>().enabled = false;
-                    pathElement.transform.position = vector3;
-                    pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-                    path.Add(pathElement);
-                    writer.Write(vector3.x + " " + vector3.y + " " + vector3.z + "\n");
-                    this.arc.Add(vector3);
-                    await Task.Delay(3);
+                    Vector3 vector3 = new Vector3(hand.position.x, hand.position.y, hand.position.z);
+                    if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+                    {
+                        GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        pathElement.GetComponent<Collider>().enabled = false;
+                        pathElement.transform.position = vector3;
+                        pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+                        path.Add(pathElement);
+                        writer.Write(vector3.x + " " + vector3.y + " " + vector3.z + "\n");
+                        this.arc.Add(vector3);
+                        await Task.Delay(3);
+                    }
+                } while (!cancellationTokenSource.IsCancellationRequested);
+            }
+            
+            
+        }
+        
+        void AppendTextToFileAsync(string filePath, string text)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    writer.WriteLineAsync(text);
                 }
             }
+            catch (Exception ex)
+            {
+                Debug.Log($"An error occurred: {ex.Message}");
+            }
         }
+    
+        void CallAppendText(string filePath)
+        {
+            string fileName = "hand_positions_measurements.txt";
+            fileName = Path.Combine(Application.persistentDataPath, fileName);
+            AppendTextToFileAsync(fileName, filePath);
+        }
+        
+        
 
         void StopRecordingPath()
         {
@@ -109,6 +465,7 @@ public class VRDebug_Janek : MonoBehaviour
             {
                 cancellationTokenSource.Cancel();
             }
+            LoadMeasurements();
         }
         
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
@@ -128,20 +485,44 @@ public class VRDebug_Janek : MonoBehaviour
             this.arc.Clear();
             Debug.Log($"Długość łuku: {arcLength.ToString()}, Kąt: {RadiansToDegrees(arcAngle).ToString()}");
         }
-        
-        
     }
-    
-    private static List<Vector3> LoadPointsFromFile(string fileName)
+
+    private void LoadPointsFromFile(string fileName)
     {
         var points = new List<Vector3>();
+        fileName = Path.Combine(Application.persistentDataPath, fileName); 
         var lines = File.ReadLines(fileName);
         foreach (var line in lines)
         {
             var parts = line.Split(' ');
-            points.Add(new Vector3(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2])));
+            if (parts.Length != 3)
+            {
+                continue;
+            }
+        
+            if (!float.TryParse(parts[0], out float x) || 
+                !float.TryParse(parts[1], out float y) || 
+                !float.TryParse(parts[2], out float z))
+            {
+                continue;
+            }
+
+            points.Add(new Vector3(x, y, z));
         }
-        return points;
+
+        Color randomColor = UnityEngine.Random.ColorHSV();
+        List<GameObject> tempList = new List<GameObject>();
+        foreach (var point in points)
+        {
+            GameObject pathElement = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            pathElement.GetComponent<Collider>().enabled = false;
+            pathElement.transform.position = point;
+            pathElement.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+            pathElement.GetComponent<Renderer>().material.color = randomColor;
+            tempList.Add(pathElement);
+        }
+        
+        history.Add(tempList);
     }
 
     private static double[] FitCircle(List<Vector3> points)
