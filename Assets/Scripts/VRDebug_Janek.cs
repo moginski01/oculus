@@ -26,7 +26,7 @@ public class VRDebug_Janek : MonoBehaviour
     //to jest test do banana
     // Referencja do obiektu Banana Man
     private GameObject bananaMan;
-
+    
     // Referencje do komponentów Banana Man
     private Animator animator;
     private Rigidbody rigidbody;
@@ -69,7 +69,7 @@ public class VRDebug_Janek : MonoBehaviour
     private float thumbstickInput_y = 0f;
     public float thumbstickThreshold = 0.5f;
 
-    private float switchTimer = 0f;
+    private float timer = 0f;
 
     private Color[] defaultColors;
 
@@ -208,8 +208,8 @@ public class VRDebug_Janek : MonoBehaviour
         x2 = 0.0F;
         y2 = 0.0F;
         z2 = 0.0F;
-        this.menuList = new MenuList();
-        this.modelScale = new ModelScale();
+        // this.menuList = new MenuList();
+        // this.modelScale = new ModelScale();
         Button btn = loadButton.GetComponent<Button>();
         dropdown = dropdown.GetComponent<TMP_Dropdown>();
         btn.onClick.AddListener(() =>

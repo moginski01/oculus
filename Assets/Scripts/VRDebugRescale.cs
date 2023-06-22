@@ -45,6 +45,10 @@ public class VRDebugRescale : MonoBehaviour
     private RescaleMenuController menuController;
     private int lastMenuOption = 0;
 
+    private List<string> animationNames = new List<string>
+    {
+        "HeadAnimation","FloorAnimation","RightShoulderTap", "RightHandTap 1","LeftShoulderTap","LeftHandTap"
+    };
     void Start()
     {
         UI.SetActive(true);
@@ -57,6 +61,10 @@ public class VRDebugRescale : MonoBehaviour
         x2 = 0.0F;
         y2 = 0.0F;
         z2 = 0.0F;
+        GameObject model = GameObject.Find("UserModel");
+        
+            
+        animator = model.GetComponent<Animator>();
         this.menuList = new MenuList();
         this.modelScale = new ModelScale();
     }
@@ -100,7 +108,31 @@ public class VRDebugRescale : MonoBehaviour
 
 
 
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
+            {                        
+                string animationName;
+                int currentOption = menuController.GetCurrentOption();
+                switch (currentOption)
+                {
+                    case 0:
+                        animationName = animationNames[1];
+                        animator.Play(animationName);
+                    break;
+                    case 1:
+                        animationName = animationNames[2];
+                        animator.Play(animationName);
+                    break;
+                    case 2:
+                        animationName = animationNames[4];
+                        animator.Play(animationName);
+                    break;
+                }
 
+            }
+
+        }
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
             if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
@@ -117,13 +149,24 @@ public class VRDebugRescale : MonoBehaviour
                 {
                     case 0:
                     {//pomiar wzrostu - skalujemy wszystko
+                        string animationName;
+                        if (OVRInput.GetDown(OVRInput.Button.Four))
+                        {
+                            Debug.Log("0");
+                            animationName = animationNames[1];
+                            animator.Play(animationName);
+                        }
                         if (firstSet.Equals(false))
                         {
+                            // Debug.Log(animationNames.Count);
+
                             firstSet = true;
                             x1 = rightData.x;
                             y1 = rightData.y;
                             z1 = rightData.z;
                             Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                            animationName = animationNames[0];
+                            animator.Play(animationName);
                         }
                         else
                         {
@@ -132,8 +175,9 @@ public class VRDebugRescale : MonoBehaviour
                             y2 = rightData.y;
                             z2 = rightData.z;
 
+                            
                             float distance = Math.Abs(y1 - y2);
-                            // Debug.Log("Odległość między punktami: " + distance);
+                            Debug.Log("Wzrost: " + distance);
                             if (this.menuList.startMeasure == false)
                             {
                                 GameObject model = GameObject.Find("UserModel");
@@ -145,21 +189,34 @@ public class VRDebugRescale : MonoBehaviour
                                 // Debug.Log("Armature: " + currentScaleArmature);
                                 currentScaleArmature = originalScale*multiplier;
                                 armature.transform.localScale = currentScaleArmature;
-          
+                                animationName = animationNames[1];
+                                animator.Play(animationName);
                             }
                         }
                         break;
                     }
                     case 1:
                     {//pomiar ręki lewej
+                        string animationName;
+                        if (OVRInput.GetDown(OVRInput.Button.Two))
+                        {
+                            Debug.Log("1");
+
+                            animationName = animationNames[2];
+                            animator.Play(animationName);
+                        }
+
+                        // animator.Play(animationName);
                         if (firstSet.Equals(false))
                         {
                             firstSet = true;
                             x1 = rightData.x;
                             y1 = rightData.y;
                             z1 = rightData.z;
-                            // Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
-                            Debug.Log("Teraz przyłóż kontroler na koniec lewej ręki");
+                            Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                            // Debug.Log("Teraz przyłóż kontroler na koniec lewej ręki");
+                            animationName = animationNames[5];
+                            animator.Play(animationName);
                         }
                         else
                         {
@@ -169,7 +226,7 @@ public class VRDebugRescale : MonoBehaviour
                             z2 = rightData.z;
 
                             float distance = Mathf.Sqrt(Mathf.Pow((x2 - x1), 2) + Mathf.Pow((y2 - y1), 2) + Mathf.Pow((z2 - z1), 2));
-                            // Debug.Log("Odległość między punktami: " + distance);
+                            // Debug.Log("Rozmiar lewej ręki: " + distance);
                             
                             // float distance2 = Mathf.Sqrt(Mathf.Pow((7.45058e-11f - 0.0001550801f), 2) + Mathf.Pow((0.01007542f - 0.005770001f), 2) + Mathf.Pow((2.114102e-09f - 0.001264061f), 2));
                             // Debug.Log("Odległość między punktami2: " + distance2);//
@@ -187,7 +244,8 @@ public class VRDebugRescale : MonoBehaviour
                                 currentScaleLeftHand = originalScaleHand*multiplierHand;
                                 leftHand.transform.localScale = currentScaleLeftHand;
                                 Debug.Log("Długość lewej ręki wynosi: " + distance);
-
+                                animationName = animationNames[2];
+                                animator.Play(animationName);
                             }
                         }
                         break;
@@ -195,6 +253,13 @@ public class VRDebugRescale : MonoBehaviour
                     }
                     case 2:
                     {//pomiar prawej ręki
+                        string animationName;
+                        if (OVRInput.GetDown(OVRInput.Button.Two))
+                        {
+                            Debug.Log("2");
+                            // animationName = animationNames[4];
+                            // animator.Play(animationName);
+                        }
                         if (firstSet.Equals(false))
                         {
                             firstSet = true;
@@ -202,6 +267,8 @@ public class VRDebugRescale : MonoBehaviour
                             y1 = rightData.y;
                             z1 = rightData.z;
                             Debug.Log("Punkt pierwszy x = " + x1 + ",y = " + y1 + ",z = " + z1);
+                            animationName = animationNames[3];
+                            animator.Play(animationName);
                         }
                         else
                         {
@@ -230,6 +297,8 @@ public class VRDebugRescale : MonoBehaviour
                                 Debug.Log("Długość prawej ręki wynosi: " + distance);
 
                             }
+                             animationName = animationNames[4];
+                            animator.Play(animationName);
                         }
                         break;
                         
@@ -242,13 +311,7 @@ public class VRDebugRescale : MonoBehaviour
             }
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.Two))
-        {
-            if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightData))
-            {
 
-            }
-        }
 
 
 

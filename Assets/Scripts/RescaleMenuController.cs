@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -13,7 +14,12 @@ public class RescaleMenuController : MonoBehaviour
 
     public Color selectedColor; // Kolor dla wybranego elementu
     private Color[] defaultColors; // Tablica kolorów dla wszystkich elementów
-
+    private Animator animator;
+    private List<string> animationNames = new List<string>
+    {
+        "HeadAnimation","FloorAnimation","LeftShoulderTap","LeftHandTap","RightShoulderTap", "RightHandTap1"
+    };
+    
     void Start()
     {
         defaultColors = new Color[options.Length]; // Inicjalizacja tablicy kolorów
@@ -27,16 +33,20 @@ public class RescaleMenuController : MonoBehaviour
 
         // Ustawienie koloru dla początkowo wybranego elementu
         SetSelectedColor(currentOption);
+        GameObject model = GameObject.Find("UserModel");
+        animator = model.GetComponent<Animator>();
     }
 
     void Update()
     {
         thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
-
+        // thumbstickInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
+        // Debug.Log(thumbstickInput);
         if (thumbstickInput > thumbstickThreshold && switchTimer <= 0f)
         {
             SelectOption(currentOption - 1);
             switchTimer = switchDelay;
+            // animator.Play(animationNames[GetCurrentOption()*2]);
         }
         else if (thumbstickInput < -thumbstickThreshold && switchTimer <= 0f)
         {
