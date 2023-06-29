@@ -1,0 +1,4 @@
+Płaszczyzna przybliżająca zbiór punktów
+wyznaczenie okręgu
+oś symetrii z okręgu.
+3 nierównoległe proste jak znaleźć punkt najmniej oddalony od nich.
